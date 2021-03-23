@@ -1,0 +1,77 @@
+
+<html>
+
+<script type="text/javascript">
+    function validate()
+    {
+
+        var name =  document.getElementById("name").value;
+        var city =  document.getElementById("city").value;
+        var email =  document.getElementById("email").value;
+        var dob =  document.getElementById("dob").value;
+
+
+        var valid = true;
+
+        if(name.length<=0)
+        {
+            alert("Please Enter Your Name.");
+            valid = false;
+        }
+
+        else if(city.length<=0)
+        {
+            alert("Please Enter Your City.");
+            valid = false;
+        }
+
+        else if(email.length<=0)
+        {
+            alert("Please Enter Your email.");
+            valid = false;
+        }
+
+        else if(email.length>0)
+        {
+            var pat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if(pat.test(email) == false)
+            {
+                alert("Please enter a vaild email address");
+            }
+            valid = false;
+        }
+        
+        else if(dob.length<=0)
+        {
+            alert("Please Enter Your Date of Birth.");
+            valid = false;
+        }
+
+        if(valid)
+        {
+            alert("Congratulations! Your form has been submitted successfully."); 
+        }
+
+        
+    }
+</script>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <div style="text-align:center;">
+    <form method="post" name="rform">
+	<table align="center" style="background-color: lightgreen;">
+    <tr><td><h1 style="text-align:center;color:seagreen">Registeration Form</h1></td></tr>
+	<tr><td><input type="text" placeholder="Enter Your Name" id="name" style="width:100%"></td></tr>
+	<tr><td><input type="text" placeholder="Enter Your City" id="city" style="width:100%"></td></tr>
+	<tr><td><input type="email" placeholder="Enter Your Email" id="email" style="width:100%"></td></tr>
+	<tr><td align="center"><label for="dob" >Date of Birth : <br></label></td></tr>
+	<tr><td align="center"><input type="date" id="dob" style="width:100%"></td></tr>
+	<tr><td><input type="button" value="Submit" onclick="validate()" style="width:100%"></td></tr>
+	</table>
+    </form>  
+    </div>  
+</body>    
+</html>
